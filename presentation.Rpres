@@ -1,0 +1,24 @@
+Data design patterns for data projects
+======================================
+Pierce Edmiston
+MadR Meetup
+5.4.16
+
+About me
+========
+
+What is a data project?
+=======================
+- **Reproducible** - Easily redo everything on any computer.
+- **Replicable** - New data, same code.
+- **Reuseable** - Shared across dynamic documents and presentations.
+
+> A data project is not a data set.
+
+Design patterns
+===============
+- **Egg Projects**: A useful configuration of R packages and RStudio projects
+  to facilitate reproducible and reusable data projects.
+- **Parallel Reports**: The parallelization of code and report writing for
+  improved interactive development.
+- **Plot Skins**: A small pattern for getting the most out of ggplot.
