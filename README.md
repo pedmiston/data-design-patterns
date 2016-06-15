@@ -10,8 +10,7 @@ I will be introducing these data design patterns, including the motivations for 
 
 ## Design patterns
 
-1. **Egg Projects**: A useful configuration of R packages and RStudio projects
-   to facilitate reproducible and reusable data projects.
+1. **Egg Projects**: A useful configuration of R packages and RStudio projects.
 2. **Parallel Reports**: The parallelization of code and report writing for
    improved interactive development.
-3. **Plot Skins**: A small pattern for getting the most out of ggplot.
+3. **DRY Plots**: A small pattern for getting the most out of ggplot.

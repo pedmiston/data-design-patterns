@@ -1,24 +1,103 @@
 Data design patterns for data projects
 ======================================
-Pierce Edmiston
-MadR Meetup
+css: theme.css
+Pierce Edmiston  
+MadR Meetup  
 5.4.16
 
-About me
-========
+```{r, config, echo = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE,
+  fig.align = "center"
+)
+```
 
 What is a data project?
 =======================
-- **Reproducible** - Easily redo everything on any computer.
-- **Replicable** - New data, same code.
-- **Reuseable** - Shared across dynamic documents and presentations.
+- **Reproducible**: Easily redo everything on any computer.
+- **Replicable**: New data, same code.
+- **Reuseable**: New context, same analyses.
 
 > A data project is not a data set.
 
 Design patterns
 ===============
-- **Egg Projects**: A useful configuration of R packages and RStudio projects
-  to facilitate reproducible and reusable data projects.
+- **Egg Projects**: A useful configuration of R packages and RStudio projects.
 - **Parallel Reports**: The parallelization of code and report writing for
   improved interactive development.
-- **Plot Skins**: A small pattern for getting the most out of ggplot.
+- **DRY Plots**: A small pattern for getting the most out of ggplot.
+
+<!-- Egg projects -->
+
+===
+```{r, engine = "dot"}
+digraph {
+  fontname = helvetica;
+  fontsize = 20;
+  rankdir = LR;
+  size = "20!";
+  
+  node[fontname = helvetica];
+  node[fontsize = 10; size = 20];
+  
+  label = "Egg projects";
+  labelloc = top;
+
+  egg[label = "R pkg", shape = "egg", height = 1];
+  node[shape = "none"]{data, reports, presentations};
+
+  data -> egg -> {reports, presentations}[headport = "w"];
+}
+```
+
+<!-- Parallel reports -->
+
+===
+```{r, engine = "dot"}
+digraph {
+  fontname = helvetica;
+  fontsize = 20;
+  rankdir = LR;
+  size = "20!";
+  
+  node[fontname = helvetica];
+  node[fontsize = 10; size = 20; shape = "none"];
+  
+  label = "Parallel reports";
+  labelloc = top;
+  
+  {setup, models, plots} -> report[arrowhead = "none"; tailport = "e"; headport = "w"];
+  
+  setup[label = "setup.R"];
+  models[label = "models.R"];
+  plots[label = "plots.R"];
+  
+  report[label = "report.Rmd"];
+}
+```
+
+<!-- DRY plots -->
+
+===
+```{r, engine = "dot"}
+digraph {
+  fontname = helvetica;
+  fontsize = 20;
+  rankdir = LR;
+  size = "20!";
+  
+  node[fontname = helvetica];
+  node[fontsize = 10; size = 20; shape = "none"];
+  
+  label = "DRY plots";
+  labelloc = "top";
+
+  base -> {overall, by_item, model_preds}[tailport = "e", headport = "w", arrowhead = "none"];
+  
+  base[label = "base plot"];
+  overall[label = "overall.png"];
+  by_item[label = "by_item.png"];
+  model_preds[label = "model_preds.png"];
+}
+```
