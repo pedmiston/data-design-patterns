@@ -15,14 +15,23 @@ opts_chunk$set(
 
 What is a data project?
 =======================
-- **Reproducible**: Easily redo everything on any computer.
+- **Reproducible**: Easy to redo everything on any computer.
 - **Replicable**: New data, same code.
 - **Reuseable**: New context, same analyses.
 
 > A data project is not a data set.
 
-Design patterns
-===============
+What is a design pattern?
+=========================
+
+> Structure for your code decided by someone else.
+
+- Upfront cost to prevent inevitable headaches.
+- Unified structure helps when debugging.
+- Easy to implement new features.
+
+Design patterns for data projects
+=================================
 - **Egg Projects**: A useful configuration of R packages and RStudio projects.
 - **Parallel Reports**: The parallelization of code and report writing for
   improved interactive development.
