@@ -30,6 +30,11 @@ What is a design pattern?
 - Unified structure helps when debugging.
 - Easy to implement new features.
 
+Design patterns for _____
+=========================
+
+- ![Netflix](http://bit.ly/netflix-design-patterns)
+
 Design patterns for data projects
 =================================
 - **Egg Projects**: A useful configuration of R packages and RStudio projects.
@@ -46,10 +51,10 @@ digraph {
   fontsize = 20;
   rankdir = LR;
   size = "20!";
-  
+
   node[fontname = helvetica];
   node[fontsize = 10; size = 20];
-  
+
   label = "Egg projects";
   labelloc = top;
 
@@ -69,19 +74,19 @@ digraph {
   fontsize = 20;
   rankdir = LR;
   size = "20!";
-  
+
   node[fontname = helvetica];
   node[fontsize = 10; size = 20; shape = "none"];
-  
+
   label = "Parallel reports";
   labelloc = top;
-  
+
   {setup, models, plots} -> report[arrowhead = "none"; tailport = "e"; headport = "w"];
-  
+
   setup[label = "setup.R"];
   models[label = "models.R"];
   plots[label = "plots.R"];
-  
+
   report[label = "report.Rmd"];
 }
 ```
@@ -95,15 +100,15 @@ digraph {
   fontsize = 20;
   rankdir = LR;
   size = "20!";
-  
+
   node[fontname = helvetica];
   node[fontsize = 10; size = 20; shape = "none"];
-  
+
   label = "DRY plots";
   labelloc = "top";
 
   base -> {overall, by_item, model_preds}[tailport = "e", headport = "w", arrowhead = "none"];
-  
+
   base[label = "base plot"];
   overall[label = "overall.png"];
   by_item[label = "by_item.png"];
