@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+curl \
+  http://www.faa.gov/about/initiatives/lasers/laws/media/laser_incidents_2010-2014.xls \
+  -o projdata/data-raw/laser_incidents_2010-2014.xls

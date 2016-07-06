@@ -34,8 +34,31 @@ The end result has a directory structure like so::
             ├── NAMESPACE
             ├── R
             └── projdata.Rproj
-    
+
     3 directories, 5 files
+
+Getting the data
+----------------
+
+Remember that a data project is not a dataset. One implication of this is that getting the data is probably going to be scripted. Even if getting the data is as simple as downloading it with a URL, it's best practice to script it.
+
+For this demo, I'll be using a simple bash script::
+
+    #!/usr/bin/env bash
+    curl http://www.faa.gov/about/initiatives/lasers/laws/media/laser_incidents_2010-2014.xls -o projdata/data-raw/laser_incidents_2010-2014.xls
+
+Using the data in the R pkg
+---------------------------
+
+The best way to share data in an R pkg is through .rda files stored in the package's data directory. I like to create an .R script that reads the raw data files and uses the devtools function ``use_data`` to save the data in the correct format::
+
+    # data-raw/use-data.R
+    library(readxl)
+    library(devtools)
+
+    laser_incidents <- read_excel("data-raw/laser_incidents_2010-2014.xls")
+
+    use_data(laser_incidents)
 
 Sharing the R pkg
 -----------------
@@ -72,4 +95,3 @@ within the github repo using `devtools::install_github`::
     # in R
     > devtools::install_github("pedmiston/my-proj", subdir = "projdata")
     > library(projdata)
-
