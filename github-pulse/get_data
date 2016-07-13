@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-cd githubarchive/data-raw &&
-wget http://data.githubarchive.org/2015-01-01-15.json.gz
-    
