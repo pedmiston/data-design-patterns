@@ -6,12 +6,23 @@ output:
     theme: flatly
 ---
 
+```{r config, echo = FALSE, message = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  fig.path = "fig/"
+)
+```
+
 ```{r setup}
 library(devtools)
-load_package("githubarchive")
-data("r_activity")
+load_all("githubarchive")
+
+library(dplyr)
+data("activity")
 
 library(ggplot2)
-ggplot(r_activity, aes(x = day, y = size)) +
-    geom_bar(stat = "summary", y = "sum")
+ggplot(activity, aes(x = created_at)) +
+  geom_density(aes(color = type))
 ```
