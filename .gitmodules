@@ -1,0 +1,6 @@
+[submodule "sample-projects/property-verification"]
+	path = sample-projects/property-verification
+	url = git@github.com:lupyanlab/property-verification.git
+[submodule "sample-projects/wikischolar"]
+	path = sample-projects/wikischolar
+	url = git@github.com:evoapps/wikischolar.git
