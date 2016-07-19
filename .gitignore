@@ -1,6 +1,11 @@
 # reproducible
 overview.md
 *-figure/
+*_files/
+*_cache/
+*.html
+
+!overview.html
 
 # os
 .DS_Store
