@@ -1,0 +1,48 @@
+---
+title: "A parallel report using knitr::read_chunk"
+author: "Pierce Edmiston"
+output:
+  html_document:
+    theme: flatly
+---
+
+```{r config, echo = FALSE}
+library(knitr)
+
+opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+read_chunk("setup.R")
+read_chunk("models.R")
+read_chunk("plots.R")
+```
+
+```{r setup}
+```
+
+## Error mod
+
+```{r error-mod, echo = TRUE, cache = TRUE}
+```
+
+```{r}
+tidy(error_mod, effects = "fixed")
+```
+
+```{r error-plot}
+```
+
+## RT mod
+
+```{r rt-mod, cache = TRUE}
+```
+
+```{r}
+tidy(rt_mod, effects = "fixed")
+```
+
+```{r rt-plot}
+```
