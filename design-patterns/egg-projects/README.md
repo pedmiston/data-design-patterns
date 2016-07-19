@@ -12,17 +12,32 @@ directory:
 Then create a basic R project config file. You can do this from
 RStudio, but a quick command line hack is to create an Rproj
 file with the line "Version: 1.0" in it. When you open the file
-with RStudio, it will fill in the remaining defaults::
+with RStudio, it will fill in the remaining defaults:
 
     $ echo "Version: 1.0" > analysis.Rproj
 
-The next step is to create the R pkg that we will use to store
-the data for this project:
+This R project "analysis.Rproj" is the entry point to the data project. Every time you work on this project you start by opening up "analysis.Rproj" in RStudio.
+
+After opening our R project, one of the first things you need to do is load the data you will be analyzing and visualizing. Usually we'd do this with a call to `read.csv` or equivalent:
+
+    > read.csv("data/projdata.csv")
+    > # ... describe data, fit models, make plots
+
+For this design pattern, however, we will replace the reading of raw data files with the loading of an R package:
+
+    > library(proj)
+    > data("projdata")
+    > # ... describe data, fit models, make plots
+
+> The "egg" in "egg projects" is the R package that contains the data we are interested it. Once you have an egg, you know you can make any recipe that needs an egg. But eggs are fragile, and the boundary between the R pkg and the R project needs to be carefully maintained.
+
+To do this, the next step is to create the R pkg that we will use to store
+the data for this project.
 
     # in R
     > devtools::create("projdata")
 
-The end result has a directory structure like so:
+_R packages have a strict naming scheme: one word, all lower case, no separators like dashes or underscores._ The end result has a directory structure like so:
 
     .
     └── my-proj
@@ -37,19 +52,23 @@ The end result has a directory structure like so:
 
 These steps can be automated by creating a simple bash script:
 
-    $ touch newegg
-    $ chmod +x newegg
+    $ touch newegg     # create an empty file "newegg"
+    $ chmod +x newegg  # make it executable
 
     #!/usr/bin/env bash
     # newegg - create a new egg project.
-    mkdir $1
-    cd $1
+    # usage: newegg projname pkgname
+    projname=$1
+    pkgname=$2
+    mkdir $projname
+    cd $projname
     echo "Version: 1.0" > analysis.Rproj
-    Rscript -e "devtools::create('$2')"
+    Rscript -e "devtools::create('$pkgname')"
+    cd ..
 
 Use it like this:
 
-    $ newegg my-proj projdata
+    $ ./newegg my-proj projdata
 
 ## Getting the data
 
@@ -58,7 +77,7 @@ Use it like this:
 Here's a simple bash script for downloading a dataset from the [Data is Plural](https://tinyletter.com/data-is-plural) newsletter.
 
     #!/usr/bin/env bash
-    # getdata
+    # usage: getdata
     curl http://www.faa.gov/about/initiatives/lasers/laws/media/laser_incidents_2010-2014.xls -o projdata/data-raw/laser_incidents_2010-2014.xls
 
     my-proj/$ tree
@@ -111,7 +130,7 @@ Now you can create reports that use the data in the root directory:
     ├── analysis.Rproj
     ├── getdata
     ├── projdata
-    └── report.Rmd
+    └── report.Rmd      # in same directory as R project and R pkg
 
     my-proj/$ cat report.Rmd
     ---
@@ -141,6 +160,7 @@ At some point, the number of reports usually increases, and keeping reports in t
  The problem with storing reports in nested directories is that the `devtools::load_all` function uses a relative path, which causes problems when compiling knitr reports from within RStudio. To fix this problem, we have to switch from loading the package using a relative path to installing the package and loading the package in the standard way:
 
     my-proj/$ Rscript -e "devtools::install('projdata')"
+
     # in R
     > library(projdata)
     > data("laser_incidents")
@@ -154,9 +174,11 @@ At this point, there are a few commands run from the command line that are undoc
     ├── analysis.Rproj
     ├── bin
     │   ├── getdata
-    │   ├── install
-    │   └── usedata
+    │   ├── usedata
+    │   └── install
     ├── ...
+
+    my-proj/$ bin/getdata && bin/usedata && bin/install  # reproducible!
 
 Another solution is to create a CLI for your data project. It's pretty easy to do this in python. For quick prototyping, a helpful python package to look at is [invoke](http://pyinvoke.org).
 
@@ -193,3 +215,9 @@ within the github repo using `devtools::install_github`::
     # in R
     > devtools::install_github("pedmiston/my-proj", subdir = "projdata")
     > library(projdata)
+
+## Benefits
+
+### Documentation
+
+Integrate function docs a

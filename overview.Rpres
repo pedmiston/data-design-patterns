@@ -13,6 +13,11 @@ opts_chunk$set(
 )
 ```
 
+About me
+========
+
+![Pierce Edmiston](https://www.gravatar.com/avatar/2ab58652a5dfa36039604b6b45d841fd)
+
 What is a data project?
 =======================
 - **Reproducible**. Easy to redo everything on any computer.
@@ -30,12 +35,14 @@ What is a design pattern?
 - Unified structure helps when debugging.
 - Easy to implement new features.
 
-Other design patterns
-=====================
+Other design patterns for data science
+======================================
 
 - [Netflix](http://bit.ly/netflix-design-patterns)
-- [Cookie cutter](https://drivendata.github.io/cookiecutter-data-science/)
+- [Cookiecutter](https://drivendata.github.io/cookiecutter-data-science/)
 - [ProjectTemplate](http://projecttemplate.net/index.html)
+- [R projects](http://nicercode.github.io/blog/2013-04-05-projects/)
+- [R projects as packages](http://www.carlboettiger.info/2012/05/06/research-workflow.html)
 
 Design patterns for data projects
 =================================
