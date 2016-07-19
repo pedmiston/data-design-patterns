@@ -4,8 +4,8 @@ When starting new data projects, what's the best way to design your project to m
 
 ## Getting started
 
-* **For an overview**, see "overview.html" or compile the presentation yourself
-  from markdown by opening "overview.Pres" in RStudio.
+* **For an overview**, see "overview.html" or compile the presentation
+  yourself from markdown by opening "overview.Pres" in RStudio.
 * **To learn more about specific design patterns**, check out the READMEs in
   the directory for each design pattern.
 
