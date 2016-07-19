@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+pkgname=projdata
+Rscript -e "devtools::document('$pkgname')"
+Rscript -e "devtools::install('$pkgname')"
