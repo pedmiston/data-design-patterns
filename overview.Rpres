@@ -1,6 +1,6 @@
 Data design patterns for data projects
 ======================================
-css: theme.css
+css: overview.css
 Pierce Edmiston  
 MadR Meetup  
 5.4.16
@@ -15,9 +15,9 @@ opts_chunk$set(
 
 What is a data project?
 =======================
-- **Reproducible**: Easy to redo everything on any computer.
-- **Replicable**: New data, same code.
-- **Reuseable**: New context, same analyses.
+- **Reproducible**. Easy to redo everything on any computer.
+- **Replicable**. New data, same code.
+- **Reuseable**. New context, same analyses.
 
 > A data project is not a data set.
 
@@ -30,18 +30,19 @@ What is a design pattern?
 - Unified structure helps when debugging.
 - Easy to implement new features.
 
-Design patterns for _____
-=========================
+Other design patterns
+=====================
 
 - [Netflix](http://bit.ly/netflix-design-patterns)
 - [Cookie cutter](https://drivendata.github.io/cookiecutter-data-science/)
+- [ProjectTemplate](http://projecttemplate.net/index.html)
 
 Design patterns for data projects
 =================================
-- **Egg Projects**: A useful configuration of R packages and RStudio projects.
-- **Parallel Reports**: The parallelization of code and report writing for
+- **Egg Projects**. A useful configuration of R packages and RStudio projects.
+- **Parallel Reports**. The parallelization of code and report writing for
   improved interactive development.
-- **DRY Plots**: A small pattern for getting the most out of ggplot.
+- **DRY Plots**. A small pattern for getting the most out of ggplot.
 
 <!-- Egg projects -->
 
@@ -116,3 +117,10 @@ digraph {
   model_preds[label = "model_preds.png"];
 }
 ```
+
+Sample projects
+===============
+
+- **github-pulse**. Analyze Github event data.
+- **property-verification**. A reproducible psychology experiment.
+- **wikischolar**. Understanding changes in Wikipedia article quality.

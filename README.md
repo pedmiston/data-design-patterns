@@ -5,7 +5,8 @@ When starting new data projects, what's the best way to design your project to m
 ## Getting started
 
 * **For an overview**, see "overview.html" or compile the presentation
-  yourself from markdown by opening "overview.Pres" in RStudio.
+  yourself from markdown by opening "overview.Pres" in RStudio. Be sure
+  to see the section [Installation requirements](https://github.com/pedmiston/data-design-patterns#installation-requirements) below.
 * **To learn more about specific design patterns**, check out the READMEs in
   the directory for each design pattern.
 
@@ -30,4 +31,18 @@ Design patterns in the traditional software development sense are configurations
 
 Data projects lie somewhere between the analysis of a single data set and continuous analytics pipelines (big data). Data projects are extremely important for scientific experiments and empirical analysis. I believe that all experiments can and should be implemented as data projects to facilitate reproducibility and replicability. A developer perspective on data projects and data design patterns is that they allow for agile data science where iteration and incremental development is key.
 
-I will be introducing these data design patterns, including the motivations for them and some example projects that implement them, at the MadR - Madison R Programming UseRs Group MeetUp on July 20, 2016 <http://www.meetup.com/MadR-Madison-R-Programming-UseRs-Group/events/230575960/>.
+I will be introducing these data design patterns at the Madison R Users Group on July 20, 2016 <http://www.meetup.com/MadR-Madison-R-Programming-UseRs-Group/events/230575960/>.
+
+## Installation requirements
+
+- The figures in the presentation are created using
+  [graphviz](http://www.graphviz.org/), which I installed on my
+  Mac using [homebrew](http://brew.sh/):
+  
+      $ brew install graphviz
+
+- The sample projects are stored in git submodules, i.e., they
+  link to other repos. After cloning the repo, they must be
+  initialized and updated:
+      
+      $ git submodule init && git submodule update
