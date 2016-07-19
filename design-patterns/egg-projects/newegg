@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# newegg - create a new data project using the egg template
+projname=$1
+pkgname=$2
+
+mkdir $projname
+cd $projname
+echo "Version: 1.0" > analysis.Rproj
+Rscript -e "devtools::create('$pkgname')"
+cd ..
