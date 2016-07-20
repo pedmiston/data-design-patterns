@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# usedata - compile data to .rda
+# usage: usedata
+pkgname=projdata
+cd $pkgname
+Rscript data-raw/save-as.R
+cd ..

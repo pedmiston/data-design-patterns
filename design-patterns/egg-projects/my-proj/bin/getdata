@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# usage: getdata
+pkgname=projdata
+curl http://www.faa.gov/about/initiatives/lasers/laws/media/laser_incidents_2010-2014.xls -o $pkgname/data-raw/laser_incidents_2010-2014.xls
