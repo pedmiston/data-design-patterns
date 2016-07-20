@@ -29,6 +29,8 @@ read_chunk("plots.R")
 ```
 
 ```{r}
+# variables are created in the global environment,
+# so they are available for inspection and display.
 tidy(error_mod, effects = "fixed")
 ```
 
