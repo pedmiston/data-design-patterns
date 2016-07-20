@@ -71,7 +71,7 @@ The end result has a directory structure like so:
 
     3 directories, 5 files
 
-These steps can be automated by creating a simple bash script:
+The steps can be automated by creating a simple bash script:
 
 ```bash
 touch newegg     # create an empty file "newegg"
@@ -213,7 +213,11 @@ At this point, there are a few commands run from the command line that are undoc
 
     my-proj/$ bin/getdata && bin/usedata && bin/install  # reproducible!
 
-Another solution is to create a CLI for your data project. It's pretty easy to do this in python. For quick prototyping, a helpful python package to look at is [invoke](http://pyinvoke.org).
+If simple bash scripts start getting out of hand, there are a number of other solutions:
+
+- [make](https://www.gnu.org/software/make/). The original.
+- [rake](http://docs.seattlerb.org/rake/). make for Ruby.
+- [invoke](http://pyinvoke.org). make for python.
 
 ## Sharing the data
 
