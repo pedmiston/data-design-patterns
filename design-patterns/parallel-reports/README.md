@@ -1,5 +1,7 @@
 # Parallel reports
 
+![Parallel reports](/design-patterns/parallel-reports/parallel-reports.png)
+
 ## Problems
 
 1. Interactive development of reports is hard to do right, in a way that encourages you to write the best code with the greatest payoffs down the road.

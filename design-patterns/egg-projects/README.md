@@ -2,6 +2,8 @@
 
 A design pattern for data science in R.
 
+![Egg projects](/design-patterns/egg-projects/egg-projects.png)
+
 ## Creating a new egg project
 
 To create a new project called `my-proj`, first create the `my-proj`
