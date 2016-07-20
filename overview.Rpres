@@ -39,10 +39,14 @@ Design patterns for data science
 - [R projects](http://nicercode.github.io/blog/2013-04-05-projects/)
 - [R packages](http://www.carlboettiger.info/2012/05/06/research-workflow.html)
 
+<aside class="notes">
+See <a href="https://en.wikipedia.org/wiki/Software_design_pattern">here</a> for more information about design patterns.
+</aside>
+
 Design patterns for data projects
 =================================
 - **Egg Projects**. A useful configuration of R packages and RStudio projects.
-- **Parallel Reports**. The parallelization of code and report writing for
+- **Parallel Reports**. The untangling of code and report writing for
   improved interactive development.
 - **DRY Plots**. A small pattern for getting the most out of ggplot.
 
@@ -120,8 +124,8 @@ digraph {
 }
 ```
 
-Sample projects
-===============
+Example data projects
+=====================
 
 - **github-pulse**. Analyze Github event data.
 - **property-verification**. A reproducible psychology experiment.

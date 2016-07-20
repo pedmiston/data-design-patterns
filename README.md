@@ -8,18 +8,18 @@ When starting new data projects, what's the best way to design your project to m
   yourself from markdown by opening "overview.Pres" in RStudio. Be sure
   to see the section [Installation requirements](https://github.com/pedmiston/data-design-patterns#installation-requirements) below.
 * **To learn more about specific design patterns**, check out the READMEs in
-  the directory for each design pattern.
+  each design pattern directory.
 
 ## Design patterns
 
-1. **Egg Projects**: A useful configuration of R packages and RStudio
+1. **Egg projects**. A useful configuration of R packages and RStudio
    projects.
-2. **Parallel Reports**: The parallelization of code and report writing for
+2. **Parallel reports**. The parallelization of code and report writing for
    improved interactive development.
-3. **DRY Plots**: A small pattern for not repeating yourself when making plots
-   using ggplot.
+3. **DRY plots**. A small pattern for not repeating yourself when making
+   plots using ggplot.
 
-## Sample projects
+## Example data projects
 
 1. **github-pulse** is a project I made up mainly to demonstrates each of the design patterns in action. The project pulls freely available Github event data from [githubarchive](https://githubarchive.org) and analyzes it in R. This sample project demonstrates the value of data design patterns in facilitating the growth of a data project from exploratory analyses to final reports.
 2. **property-verification** is a cognitive psychology experiment set up as a data project. The data in this project can be used to demonstrate how to write **parallel reports** and **DRY plots** that grow gracefully from exploratory analyses to final reports.
@@ -38,11 +38,15 @@ I will be introducing these data design patterns at the Madison R Users Group on
 - The figures in the presentation are created using
   [graphviz](http://www.graphviz.org/), which I installed on my
   Mac using [homebrew](http://brew.sh/):
-  
-      $ brew install graphviz
+
+  ```bash
+  brew install graphviz
+  ```
 
 - The sample projects are stored in git submodules, i.e., they
   link to other repos. After cloning the repo, they must be
   initialized and updated:
-      
-      $ git submodule init && git submodule update
+
+  ```bash
+  git submodule init && git submodule update
+  ```

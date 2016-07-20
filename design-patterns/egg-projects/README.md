@@ -1,8 +1,19 @@
 ![Egg projects](/design-patterns/egg-projects/egg-projects.png)
 
-# Egg projects
+An **egg project** is a design pattern for data science in R. An egg project
+is a data project directory that contains an R pkg (the "egg"). Data is
+collected and put into the egg.
 
-A design pattern for data science in R.
+## Description
+
+* **Intent**. Make it easy to recreate stats and plots.
+* **Scenario**. An experiment has been conducted and the results are ready to
+  analyze. The results might be presented in lab talks, conference talks, and
+  journal articles. Let's say the talks and articles need to be dynamically
+  compiled. What is the best way to ensure that the same stats and plots can be
+  generated in all of these different contexts and without copy and paste?
+* **Solution**. Load the results of an experiment through an R pkg (the "egg")
+  rather than through plaintext data files.
 
 ## Creating a new egg project
 

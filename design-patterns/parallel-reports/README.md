@@ -1,6 +1,14 @@
-# Parallel reports
-
 ![Parallel reports](/design-patterns/parallel-reports/parallel-reports.png)
+
+**Parallel reports** are dynamic reports where the text and the code are purposefully disentangled.
+
+## Description
+
+* **Intent**. Write exploratory reports that evolve into final reports.
+* **Scenario**. You want to have a dynamic report but your development
+  time is impaired or you otherwise have a hard time writing complicated R code in knitr chunks.
+* **Solution**. Write complicated R code in normal .R files and load it into
+  dynamic reports using the `knitr::read_chunk` function.
 
 ## Problems
 
