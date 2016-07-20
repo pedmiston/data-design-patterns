@@ -1,9 +1,9 @@
 [submodule "sample-projects/property-verification"]
-	path = sample-projects/property-verification
+	path = example-projects/property-verification
 	url = git@github.com:lupyanlab/property-verification.git
 [submodule "sample-projects/wikischolar"]
-	path = sample-projects/wikischolar
+	path = example-projects/wikischolar
 	url = git@github.com:evoapps/wikischolar.git
 [submodule "sample-projects/github-pulse"]
-	path = sample-projects/github-pulse
+	path = example-projects/github-pulse
 	url = git@github.com:pedmiston/github-pulse.git
