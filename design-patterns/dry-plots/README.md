@@ -11,7 +11,7 @@
 Create a base plot without any layers.
 
 ```R
-base_plot <- ggplot(df, aes(x, y)))
+base_plot <- ggplot(df, aes(x, y))
 ```
 
 Then split the data in different ways for facets.
