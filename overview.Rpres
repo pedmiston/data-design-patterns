@@ -1,9 +1,9 @@
 Data design patterns for data projects
 ======================================
 css: overview.css
-Pierce Edmiston  
-MadR Meetup  
-`r Sys.Date()`
+[Pierce Edmiston](https://github.com/pedmiston)  
+<pedmiston@wisc.edu>  
+[MadR Meetup](http://www.meetup.com/MadR-Madison-R-Programming-UseRs-Group/events/230575960/)
 
 ```{r config, echo = FALSE}
 library(knitr)
@@ -30,8 +30,8 @@ What is a design pattern?
 - Unified structure helps when debugging.
 - Easy to implement new features.
 
-Design patterns for data science
-================================
+Design patterns for data projects
+=================================
 
 - [Netflix](http://bit.ly/netflix-design-patterns)
 - [Cookiecutter](https://drivendata.github.io/cookiecutter-data-science/)
@@ -45,10 +45,10 @@ See <a href="https://en.wikipedia.org/wiki/Software_design_pattern">here</a> for
 
 Design patterns for data projects
 =================================
-- **Egg Projects**. A useful configuration of R packages and RStudio projects.
-- **Parallel Reports**. The untangling of code and report writing for
+- **[Egg Projects](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/egg-projects)**. A useful configuration of R packages and RStudio projects.
+- **[Parallel Reports](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/parallel-reports)**. The untangling of code and report writing for
   improved interactive development.
-- **DRY Plots**. A small pattern for getting the most out of ggplot.
+- **[DRY Plots](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/dry-plots)**. A small pattern for getting the most out of ggplot.
 
 <!-- Egg projects -->
 
@@ -127,6 +127,6 @@ digraph {
 Example data projects
 =====================
 
-- **github-pulse**. Analyze Github event data.
-- **property-verification**. A reproducible psychology experiment.
-- **wikischolar**. Understanding changes in Wikipedia article quality.
+- **[github-pulse](https://github.com/pedmiston/github-pulse)**. Analyze Github event data.
+- **[property-verification](https://github.com/lupyanlab/property-verification)**. A reproducible psychology experiment.
+- **[wikischolar](https://github.com/evoapps/wikischolar)**. Understanding changes in Wikipedia article quality.
