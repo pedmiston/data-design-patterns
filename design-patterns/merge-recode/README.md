@@ -29,3 +29,20 @@ Here's how to use it:
 data <- data_frame(feat_type = c("visual", "visual", "nonvisual", "visual"))
 data <- recode_feat_type(data)
 ```
+
+## Recoding multiple variables
+
+The `dplyr` package exports a `%>%` function, which is very useful for chaining multiple recodings together:
+
+```R
+library(dplyr)  # dplyr imports the `%>%` function from `magrittr`
+
+clean_data <- dirty_data %>%
+  recode_var1 %>%
+  recode_var2 %>%
+  recode_var3
+```
+
+## Use case
+
+Plotting model predictions on top of raw means.
