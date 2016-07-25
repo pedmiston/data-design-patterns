@@ -13,6 +13,12 @@ opts_chunk$set(
 )
 ```
 
+Spirit animal
+=============
+type: center
+
+![The platypus](img/platypus.jpg)
+
 What is a data project?
 =======================
 - **Reproducible**. Easy to redo everything on any computer.
