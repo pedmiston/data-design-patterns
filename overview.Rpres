@@ -55,6 +55,8 @@ Design patterns for data projects
 - **[Parallel Reports](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/parallel-reports)**. The untangling of code and report writing for
   improved interactive development.
 - **[DRY Plots](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/dry-plots)**. A small pattern for getting the most out of ggplot.
+- **[Merge Recode](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/merge-recode)**. Universal and authoritative recoder functions.
+- **[Green Stats](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/green-stats)**. Stats that never die.
 
 <!-- Egg projects -->
 
@@ -127,6 +129,31 @@ digraph {
   overall[label = "overall.png"];
   by_item[label = "by_item.png"];
   model_preds[label = "model_preds.png"];
+}
+```
+
+Merge recode
+============
+title: false
+```{r merge-recode, engine = "dot"}
+digraph {
+  fontname = helvetica;
+  fontsize = 20;
+  rankdir = LR;
+  size = "20!";
+
+  node[fontname = helvetica];
+  node[fontsize = 14; size = 20; shape = rect];
+  
+  label = "Merge recode";
+  labelloc = top;
+
+  {data, key} -> dummy[arrowhead = none; headclip = false];
+  dummy -> result[headport = w; tailclip = false];
+  
+  dummy[shape = point; width = 0];
+  data[fixedsize = true; height = 1.5; width = 1];
+  result[label = "recoded"; fixedsize = true; height = 1.5; width = 1.1];
 }
 ```
 
