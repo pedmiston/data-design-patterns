@@ -1,4 +1,38 @@
-![DRY plots](/design-patterns/dry-plots/dry-plots.png)
+---
+output:
+  html_document:
+    theme: flatly
+    toc: true
+---
+
+```{r config, echo = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE
+)
+```
+
+```{r dry-plots, engine = "dot"}
+digraph {
+  fontname = helvetica;
+  fontsize = 20;
+  rankdir = LR;
+  size = "20!";
+
+  node[fontname = helvetica];
+  node[fontsize = 10; size = 20; shape = "none"];
+
+  label = "DRY plots";
+  labelloc = "top";
+
+  base -> {overall, by_item, model_preds}[tailport = "e", headport = "w", arrowhead = "none"];
+
+  base[label = "base plot"];
+  overall[label = "overall.png"];
+  by_item[label = "by_item.png"];
+  model_preds[label = "model_preds.png"];
+}
+```
 
 **DRY** is "Don't Repeat Yourself" and **DRY plots** inherit the same style without repeating it.
 

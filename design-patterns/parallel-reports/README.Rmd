@@ -1,4 +1,39 @@
-![Parallel reports](/design-patterns/parallel-reports/parallel-reports.png)
+---
+output:
+  html_document:
+    theme: flatly
+    toc: true
+---
+
+```{r config, echo = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE
+)
+```
+
+```{r parallel-reports, engine = "dot"}
+digraph {
+  fontname = helvetica;
+  fontsize = 20;
+  rankdir = LR;
+  size = "20!";
+
+  node[fontname = helvetica];
+  node[fontsize = 10; size = 20; shape = "none"];
+
+  label = "Parallel reports";
+  labelloc = top;
+
+  {setup, models, plots} -> report[arrowhead = "none"; tailport = "e"; headport = "w"];
+
+  setup[label = "setup.R"];
+  models[label = "models.R"];
+  plots[label = "plots.R"];
+
+  report[label = "report.Rmd"];
+}
+```
 
 **Parallel reports** are dynamic documents where the text and the code are purposefully disentangled.
 

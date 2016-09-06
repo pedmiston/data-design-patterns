@@ -3,7 +3,6 @@ Data design patterns for data projects
 css: overview.css
 [Pierce Edmiston](https://github.com/pedmiston)  
 <pedmiston@wisc.edu>  
-[MadR Meetup](http://www.meetup.com/MadR-Madison-R-Programming-UseRs-Group/events/230575960/)
 
 ```{r config, echo = FALSE}
 library(knitr)
@@ -51,115 +50,15 @@ See <a href="https://en.wikipedia.org/wiki/Software_design_pattern">here</a> for
 
 Design patterns for data projects
 =================================
-- **[Egg Projects](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/egg-projects)**. A useful configuration of R packages and RStudio projects.
-- **[Parallel Reports](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/parallel-reports)**. The untangling of code and report writing for
+- **[Egg projects](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/egg-projects)**. A useful configuration of R packages and RStudio projects.
+- **[Parallel reports](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/parallel-reports)**. The untangling of code and report writing for
   improved interactive development.
-- **[DRY Plots](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/dry-plots)**. A small pattern for getting the most out of ggplot.
-- **[Merge Recode](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/merge-recode)**. Universal and authoritative recoder functions.
-- **[Green Stats](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/green-stats)**. Stats that never die.
-
-<!-- Egg projects -->
-
-===
-```{r egg-projects, engine = "dot"}
-digraph {
-  fontname = helvetica;
-  fontsize = 20;
-  rankdir = LR;
-  size = "20!";
-
-  node[fontname = helvetica];
-  node[fontsize = 10; size = 20];
-
-  label = "Egg projects";
-  labelloc = top;
-
-  egg[label = "R pkg", shape = "egg", height = 1];
-  node[shape = "none"]{data, reports, presentations};
-
-  data -> egg -> {reports, presentations}[headport = "w"];
-}
-```
-
-<!-- Parallel reports -->
-
-===
-```{r parallel-reports, engine = "dot"}
-digraph {
-  fontname = helvetica;
-  fontsize = 20;
-  rankdir = LR;
-  size = "20!";
-
-  node[fontname = helvetica];
-  node[fontsize = 10; size = 20; shape = "none"];
-
-  label = "Parallel reports";
-  labelloc = top;
-
-  {setup, models, plots} -> report[arrowhead = "none"; tailport = "e"; headport = "w"];
-
-  setup[label = "setup.R"];
-  models[label = "models.R"];
-  plots[label = "plots.R"];
-
-  report[label = "report.Rmd"];
-}
-```
-
-<!-- DRY plots -->
-
-===
-```{r dry-plots, engine = "dot"}
-digraph {
-  fontname = helvetica;
-  fontsize = 20;
-  rankdir = LR;
-  size = "20!";
-
-  node[fontname = helvetica];
-  node[fontsize = 10; size = 20; shape = "none"];
-
-  label = "DRY plots";
-  labelloc = "top";
-
-  base -> {overall, by_item, model_preds}[tailport = "e", headport = "w", arrowhead = "none"];
-
-  base[label = "base plot"];
-  overall[label = "overall.png"];
-  by_item[label = "by_item.png"];
-  model_preds[label = "model_preds.png"];
-}
-```
-
-Merge recode
-============
-title: false
-```{r merge-recode, engine = "dot"}
-digraph {
-  fontname = helvetica;
-  fontsize = 20;
-  rankdir = LR;
-  size = "20!";
-
-  node[fontname = helvetica];
-  node[fontsize = 14; size = 20; shape = rect];
-  
-  label = "Merge recode";
-  labelloc = top;
-
-  {data, key} -> dummy[arrowhead = none; headclip = false];
-  dummy -> result[headport = w; tailclip = false];
-  
-  dummy[shape = point; width = 0];
-  data[fixedsize = true; height = 1.5; width = 1];
-  result[label = "recoded"; fixedsize = true; height = 1.5; width = 1.1];
-}
-```
+- **[DRY plots](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/dry-plots)**. A small pattern for getting the most out of ggplot.
+- **[Merge recode](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/merge-recode)**. Authoritative recoder functions.
+- **[Green stats](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/green-stats)**. Stats that never die.
 
 Example data projects
 =====================
-
 - **[github-pulse](https://github.com/pedmiston/github-pulse)**. Analyze Github event data.
 - **[property-verification](https://github.com/lupyanlab/property-verification)**. A reproducible psychology experiment.
-- **[wikischolar](https://github.com/evoapps/wikischolar)**. Understanding changes in Wikipedia article quality.
+- **[wikischolar](https://github.com/evoapps/wikischolar)**. Evolution of Wikipedia article quality.

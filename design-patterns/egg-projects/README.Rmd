@@ -1,4 +1,36 @@
-![Egg projects](/design-patterns/egg-projects/egg-projects.png)
+---
+output:
+  html_document:
+    theme: flatly
+    toc: true
+---
+
+```{r config, echo = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE
+)
+```
+
+```{r egg-projects, engine = "dot"}
+digraph {
+  fontname = helvetica;
+  fontsize = 20;
+  rankdir = LR;
+  size = "20!";
+
+  node[fontname = helvetica];
+  node[fontsize = 10; size = 20];
+
+  label = "Egg projects";
+  labelloc = top;
+
+  egg[label = "R pkg", shape = "egg", height = 1];
+  node[shape = "none"]{data, reports, presentations};
+
+  data -> egg -> {reports, presentations}[headport = "w"];
+}
+```
 
 An **egg project** is a design pattern for data science projects in R. An egg project is a data project directory that contains an R pkg (the "egg"). Data is collected and put into the egg. All analyses related to the project start by loading the data via the package, and not by loading plaintext data files.
 
@@ -157,6 +189,7 @@ data("laser_incidents")
 
 Now you can create reports that use the data in the root directory:
 
+```
     my-proj/$ tree -L 1
     .
     ├── analysis.Rproj
@@ -170,11 +203,12 @@ Now you can create reports that use the data in the root directory:
     title: "Results"
     ---
 
-    ```{r}
+    ```{r, eval = FALSE}
     devtools::load_all("projdata")
     data("laser_incidents")
     head(laser_incidents)
     ```
+```
 
 At some point, the number of reports usually increases, and keeping reports in the root project directory is not always feasible. I usually end up keeping reports in a separate directory, like in this sample project:
 
