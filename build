@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Compile all README.Rmd reports in the design-patterns directory
+find design-patterns -name README.Rmd |
+  sed -e "s/^/Rscript -e 'rmarkdown::render(\"/" \
+      -e "s/$/\")'/" |
+  sh -x
