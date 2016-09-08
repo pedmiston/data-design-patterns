@@ -55,6 +55,10 @@ digraph {
 
 ## Introducing read_chunk
 
+```{r}
+opts_chunk$set(eval = FALSE)
+```
+
 The solution I have discovered is to write normal .R scripts and use the knitr function `read_chunk` to load them into my dynamic documents:
 
     # report.Rmd
