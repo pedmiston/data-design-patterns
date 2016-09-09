@@ -1,8 +1,8 @@
 Data design patterns for data projects
 ======================================
 css: overview.css
-[Pierce Edmiston](https://github.com/pedmiston)  
-<pedmiston@wisc.edu>  
+[Pierce Edmiston](https://github.com/pedmiston)
+<pedmiston@wisc.edu>
 
 ```{r config, echo = FALSE}
 library(knitr)
@@ -17,6 +17,18 @@ Spirit animal
 type: center
 
 ![The platypus](img/platypus.jpg)
+
+A quick poll
+============
+incremental: true
+
+- Mac | Windows | Linux
+- RStudio?
+- R?
+- RStudio projects?
+- R packages?
+- Terminal?
+- pandoc?
 
 What is a data project?
 =======================
