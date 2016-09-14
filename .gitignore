@@ -1,12 +1,12 @@
 # reproducible
 overview.md
-*-figure/
-*_files/
-*_cache/
+*figure/
+*files/
+*cache/
 *.html
-
-!overview.html
 
 # os
 .DS_Store
+
+# RStudio
 .Rproj.user
