@@ -1,46 +1,15 @@
----
-output:
-  html_document:
-    theme: flatly
-    toc: true
----
-
-```{r config, echo = FALSE}
-library(knitr)
-opts_chunk$set(
-  echo = FALSE
-)
-```
-
-```{r egg-projects, engine = "dot"}
-digraph {
-  fontname = helvetica;
-  fontsize = 20;
-  rankdir = LR;
-  size = "20!";
-
-  node[fontname = helvetica];
-  node[fontsize = 10; size = 20];
-
-  label = "Egg projects";
-  labelloc = top;
-
-  egg[label = "R pkg", shape = "egg", height = 1];
-  node[shape = "none"]{data, reports, presentations};
-
-  data -> egg -> {reports, presentations}[headport = "w"];
-}
-```
+![Egg projects](/design-patterns/egg-projects/egg-projects.png)
 
 An **egg project** is a design pattern for data science projects in R. An egg project is a data project directory that contains an R pkg (the "egg"). Data is collected and put into the egg. All analyses related to the project start by loading the data via the package, and not by loading plaintext data files.
 
 ## Description
 
-* **Intent**. Confidently recreate stats and plots.
+* **Intent**. Confidently recreate stats and plots as projects change.
 * **Scenario**. An experiment has been conducted and the results are ready to
   analyze. The results might be presented in lab talks, conference talks, and
-  journal articles. We want the talks and articles to be dynamically
-  compiled (no copy & paste!). What is the best way to ensure that the same stats and plots can be generated in all of these different contexts?
+  journal articles, all while more results are in and newer analyses run. What's
+  the best way to ensure that stats and plots can always be recreated in all of
+  these different contexts?
 * **Solution**. Load the results of an experiment through an R pkg (the "egg")
   rather than through plaintext data files.
 
@@ -79,12 +48,13 @@ data("experiment")
 # ... describe data, fit models, make plots
 ```
 
-The "egg" in "egg projects" is the R package that contains the data we are interested it. Once you have an egg, you know you can make any recipe that needs an egg. But eggs are fragile, and the boundary between the R pkg and the R project needs to be carefully maintained.
+The "egg" in "egg projects" is the R package that contains the data we are interested it. Once you have an egg, you know you can make any recipe that needs an egg.
 
 **Notice that there are two things that need to be named**: the data project (`my-proj`) and the R pkg (`projdata`). These can be the same name, but keep in mind that R packages have a strict naming scheme: one word, all lower case, no separators like dashes or underscores.
 
 To do this, the next step is to create the R pkg that we will use to store
-the data for this project.
+the data for this project. The devtools package makes it very easy to make
+the simplest possible R pkg from a template with the `create` function.
 
 ```R
 devtools::create("projdata")
@@ -103,7 +73,9 @@ The end result has a directory structure like so:
 
     3 directories, 5 files
 
-The steps can be automated by creating a simple bash script:
+## Optional quest: write a bash script
+
+The steps to making a new egg project can be automated by creating a simple bash script:
 
 ```bash
 touch newegg     # create an empty file "newegg"
@@ -126,7 +98,7 @@ cd ..
 Use it like this:
 
 ```bash
-./newegg my-proj projdata
+newegg my-proj projdata
 ```
 
 ## Getting the data
@@ -141,6 +113,9 @@ Here's a simple bash script for downloading a dataset from the [Data is Plural](
 curl http://www.faa.gov/about/initiatives/lasers/laws/media/laser_incidents_2010-2014.xls -o projdata/data-raw/laser_incidents_2010-2014.xls
 ```
 
+After running the `getdata` script, here is what the project looks like:
+
+    my-proj/$ ./getdata
     my-proj/$ tree
     .
     ├── analysis.Rproj
@@ -167,7 +142,8 @@ laser_incidents <- read_excel("data-raw/laser_incidents_2010-2014.xls")
 use_data(laser_incidents)
 ```
 
-After running this script, you can now load the data in your project:
+After running this script, the raw data was compiled to .rda format and is ready
+to be loaded with the `data(...)` function.
 
     my-proj/$ tree
     .
@@ -179,8 +155,12 @@ After running this script, you can now load the data in your project:
         ├── data
         │   └── laser_incidents.rda
         ├── data-raw
-        │   └── laser_incidents_2010-2014.xls
+        |   ├── laser_incidents_2010-2014.xls
+        │   └── save-as.R
         └── projdata.Rproj
+
+To load the data, first load the package `projdata`, which makes all .rda files
+in the project's "data/" directory available for loading. Since we haven't installed the package yet, we can't use `library(projdata)`, but devtools has a function `load_all(...)` for loading packages into the current session without installing them for future use.
 
 ```R
 devtools::load_all("projdata")
@@ -189,26 +169,12 @@ data("laser_incidents")
 
 Now you can create reports that use the data in the root directory:
 
-```
     my-proj/$ tree -L 1
     .
     ├── analysis.Rproj
     ├── getdata
     ├── projdata
     └── report.Rmd      # in same directory as R project and R pkg
-
-    my-proj/$ cat report.Rmd
-
-    ---
-    title: "Results"
-    ---
-
-    ```{r, eval = FALSE}
-    devtools::load_all("projdata")
-    data("laser_incidents")
-    head(laser_incidents)
-    ```
-```
 
 At some point, the number of reports usually increases, and keeping reports in the root project directory is not always feasible. I usually end up keeping reports in a separate directory, like in this sample project:
 
@@ -227,7 +193,7 @@ At some point, the number of reports usually increases, and keeping reports in t
 The problem with storing reports in nested directories is that the `devtools::load_all` function uses a relative path, which causes problems when compiling knitr reports from within RStudio. To fix this problem, we have to switch from loading the package using a relative path to installing the package and loading the package in the standard way:
 
 ```R
-devtools::install('projdata')
+devtools::install("projdata")
 library(projdata)
 data("laser_incidents")
 ```
@@ -271,14 +237,14 @@ bitbucket, gitlab, etc. Here I've created a repo on github, and
 am adding a remote branch for my project:
 
 ```bash
-git remote add origin git@github.com:pedmiston/my-proj.git
+git remote add origin https://github.com/pedmiston/my-proj.git
 git push -u origin master
 ```
 
 Now anyone can clone the whole data project with git:
 
 ```bash
-colleague/$ git clone git@github.com:pedmiston/my-proj.git
+colleague/$ git clone https://github.com/pedmiston/my-proj.git
 ```
 
 In order to use the data in R, they could load the projdata
@@ -289,7 +255,7 @@ package locally:
 devtools::load_all("projdata")
 ```
 
-If they just want the data, they can install the projdata package
+If they just want the data, assuming the data is included in the git repository, they can install the projdata package
 within the github repo using `devtools::install_github` with the subdir argument:
 
 ```R

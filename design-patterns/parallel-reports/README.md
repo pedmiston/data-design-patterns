@@ -1,7 +1,4 @@
-
-
-
-![](README_files/figure-html/parallel-reports-1.png)<!-- -->
+![Parallel reports](/design-patterns/parallel-reports/parallel-reports.png)
 
 **Parallel reports** are dynamic documents where the text and the code are purposefully disentangled.
 
@@ -23,15 +20,12 @@
 
 ## Introducing read_chunk
 
-
-
 The solution is to write normal .R scripts and use the knitr function `read_chunk` to load them into my dynamic documents:
 
-
-```r
-library(knitr)
-read_chunk("report.R")
-```
+    ```{r}
+    library(knitr)
+    read_chunk("report.R")
+    ```
 
 The `read_chunk` function looks at .R scripts and loads chunk by label looking for special comments like this:
 

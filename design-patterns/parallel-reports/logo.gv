@@ -1,0 +1,20 @@
+digraph {
+  fontname = helvetica;
+  fontsize = 20;
+  rankdir = LR;
+  size = "20!";
+
+  node[fontname = helvetica];
+  node[fontsize = 10; size = 20; shape = "none"];
+
+  label = "Parallel reports";
+  labelloc = top;
+
+  {setup, models, plots} -> report[arrowhead = "none"; tailport = "e"; headport = "w"];
+
+  setup[label = "setup.R"];
+  models[label = "models.R"];
+  plots[label = "plots.R"];
+
+  report[label = "report.Rmd"];
+}

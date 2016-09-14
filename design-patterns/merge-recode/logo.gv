@@ -1,0 +1,19 @@
+digraph {
+  fontname = helvetica;
+  fontsize = 20;
+  rankdir = LR;
+  size = "20!";
+
+  node[fontname = helvetica];
+  node[fontsize = 14; size = 20; shape = rect];
+  
+  label = "Merge recode";
+  labelloc = top;
+
+  {data, key} -> dummy[arrowhead = none; headclip = false];
+  dummy -> result[headport = w; tailclip = false];
+  
+  dummy[shape = point; width = 0];
+  data[fixedsize = true; height = 1.5; width = 1];
+  result[label = "recoded"; fixedsize = true; height = 1.5; width = 1.1];
+}

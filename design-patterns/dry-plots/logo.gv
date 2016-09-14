@@ -1,0 +1,19 @@
+digraph {
+  fontname = helvetica;
+  fontsize = 20;
+  rankdir = LR;
+  size = "20!";
+
+  node[fontname = helvetica];
+  node[fontsize = 10; size = 20; shape = "none"];
+
+  label = "DRY plots";
+  labelloc = "top";
+
+  base -> {overall, by_item, model_preds}[tailport = "e", headport = "w", arrowhead = "none"];
+
+  base[label = "base plot"];
+  overall[label = "overall.png"];
+  by_item[label = "by_item.png"];
+  model_preds[label = "model_preds.png"];
+}

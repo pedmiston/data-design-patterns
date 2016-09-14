@@ -1,0 +1,17 @@
+digraph {
+  fontname = helvetica;
+  fontsize = 20;
+  rankdir = LR;
+  size = "20!";
+
+  node[fontname = helvetica];
+  node[fontsize = 10; size = 20];
+
+  label = "Egg projects";
+  labelloc = top;
+
+  egg[label = "R pkg", shape = "egg", height = 1];
+  node[shape = "none"]{data, reports, presentations};
+
+  data -> egg -> {reports, presentations}[headport = "w"];
+}
