@@ -1,40 +1,7 @@
----
-output:
-  html_document:
-    theme: flatly
-    keep_md: true
-    toc: true
----
 
-```{r config, echo = FALSE}
-library(knitr)
-opts_chunk$set(
-  echo = FALSE
-)
-```
 
-```{r parallel-reports, engine = "dot"}
-digraph {
-  fontname = helvetica;
-  fontsize = 20;
-  rankdir = LR;
-  size = "20!";
 
-  node[fontname = helvetica];
-  node[fontsize = 10; size = 20; shape = "none"];
-
-  label = "Parallel reports";
-  labelloc = top;
-
-  {setup, models, plots} -> report[arrowhead = "none"; tailport = "e"; headport = "w"];
-
-  setup[label = "setup.R"];
-  models[label = "models.R"];
-  plots[label = "plots.R"];
-
-  report[label = "report.Rmd"];
-}
-```
+![](README_files/figure-html/parallel-reports-1.png)<!-- -->
 
 **Parallel reports** are dynamic documents where the text and the code are purposefully disentangled.
 
@@ -56,13 +23,12 @@ digraph {
 
 ## Introducing read_chunk
 
-```{r}
-opts_chunk$set(eval = FALSE)
-```
+
 
 The solution is to write normal .R scripts and use the knitr function `read_chunk` to load them into my dynamic documents:
 
-```{r, eval = FALSE, echo = TRUE}
+
+```r
 library(knitr)
 read_chunk("report.R")
 ```

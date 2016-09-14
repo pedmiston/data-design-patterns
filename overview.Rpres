@@ -12,29 +12,28 @@ opts_chunk$set(
 )
 ```
 
+A quick poll
+============
+incremental: true
+
+- Mac | Windows | Linux
+- R | RStudio
+- RStudio projects? `.Rproj`
+- R packages? `library(my_stuff)`
+- terminal?
+- pandoc?
+
 Spirit animal
 =============
 type: center
 
 ![The platypus](img/platypus.jpg)
 
-A quick poll
-============
-incremental: true
-
-- Mac | Windows | Linux
-- RStudio?
-- R?
-- RStudio projects?
-- R packages?
-- Terminal?
-- pandoc?
-
 What is a data project?
 =======================
 - **Reproducible**. Easy to redo everything on any computer.
 - **Replicable**. New data, same code.
-- **Reuseable**. New context, same analyses.
+- **Reuseable**. New context, same tools.
 
 > A data project is not a data set.
 
@@ -65,9 +64,9 @@ Design patterns for data projects
 - **[Egg projects](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/egg-projects)**. A useful configuration of R packages and RStudio projects.
 - **[Parallel reports](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/parallel-reports)**. The untangling of code and report writing for
   improved interactive development.
-- **[DRY plots](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/dry-plots)**. A small pattern for getting the most out of ggplot.
 - **[Merge recode](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/merge-recode)**. Authoritative recoder functions.
-- **[Green stats](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/green-stats)**. Stats that never die.
+- **[Green stats](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/green-stats)**. Result sections in knitr. Could save your life!
+- **[DRY plots](https://github.com/pedmiston/data-design-patterns/tree/master/design-patterns/dry-plots)**. A small pattern for getting the most out of ggplot.
 
 Example data projects
 =====================
