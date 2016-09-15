@@ -1,8 +1,8 @@
 # Design patterns for data projects
 
-When starting new data projects, what's the best way to design your project to minimize growing pains and maximize reuse? This project highlights a few design patterns I've found useful and reusable across a variety of data projects.
+<img src="https://github.com/pedmiston/data-design-patterns/raw/master/img/platypus.jpg" align="left">
 
-## Getting started
+When starting new data projects, what's the best way to design your project to minimize growing pains and maximize reuse? This project highlights a few design patterns I've found useful and reusable across a variety of data projects.
 
 * **For an overview**, compile the presentation by opening "overview.Rpres"
   in RStudio.
