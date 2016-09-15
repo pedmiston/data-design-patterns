@@ -38,7 +38,7 @@ The `read_chunk` function looks at .R scripts and loads chunk by label looking f
 
 Then, these chunks can be used in Rmd reports by creating an empty chunk with a label name matching one loaded by `read_chunk`. These empty chunks take up very little space in the report, yet they allow the report to remain entirely independent. knitr fills in the content of the chunks based on the label when it is compiled.
 
-## Principles of chunk files
+## Chunk file philosophy
 
 The point of separating chunk files from the .Rmd report is that sometimes you want to be able to jump in and run all of the code easily, move things around, and refactor at will. To get the most mileage out of this design pattern ensure you can always open up any of the chunk files and run them without issue in an empty environment.
 

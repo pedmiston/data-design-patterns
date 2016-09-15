@@ -1,6 +1,6 @@
 Data design patterns for data projects
 ======================================
-css: overview.css
+css: style.css
 [Pierce Edmiston](https://github.com/pedmiston)
 <pedmiston@wisc.edu>
 
@@ -18,8 +18,8 @@ incremental: true
 
 - Mac | Windows | Linux
 - R | RStudio
-- RStudio projects? `.Rproj`
-- R packages? `library(my_stuff)`
+- RStudio projects? (.Rproj)
+- Custom R packages? "library(my_stuff)"
 - terminal?
 - pandoc?
 
@@ -45,19 +45,6 @@ What is a design pattern?
 - Upfront cost to prevent likely headaches.
 - Unified structure helps when debugging.
 - Easy to implement new features.
-
-Design patterns for data projects
-=================================
-
-- [Netflix](http://bit.ly/netflix-design-patterns)
-- [Cookiecutter](https://drivendata.github.io/cookiecutter-data-science/)
-- [ProjectTemplate](http://projecttemplate.net/index.html)
-- [R projects](http://nicercode.github.io/blog/2013-04-05-projects/)
-- [R packages](http://www.carlboettiger.info/2012/05/06/research-workflow.html)
-
-<aside class="notes">
-See <a href="https://en.wikipedia.org/wiki/Software_design_pattern">here</a> for more information about design patterns.
-</aside>
 
 Design patterns for data projects
 =================================

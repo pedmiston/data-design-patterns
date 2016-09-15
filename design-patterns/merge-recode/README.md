@@ -14,19 +14,19 @@ Here is an example recoder function:
 
 ```R
 recode_feat_type <- function(frame) {
-  feat_type_map <- data_frame(
+  feat_type_map <- data.frame(
     feat_type = c("visual", "nonvisual"),
     feat_c = c(-0.5, 0.5)
   )
 
-  left_join(frame, feat_type_map)
+  merge(frame, feat_type_map, all.x = TRUE)
 }
 ```
 
 Here's how to use it:
 
 ```R
-data <- data_frame(feat_type = c("visual", "visual", "nonvisual", "visual"))
+data <- data.frame(feat_type = c("visual", "visual", "nonvisual", "visual"))
 data <- recode_feat_type(data)
 ```
 
@@ -45,4 +45,4 @@ clean_data <- dirty_data %>%
 
 ## Use case
 
-Plotting model predictions on top of raw means.
+Plotting model predictions on top of raw means. See "use-case.R".

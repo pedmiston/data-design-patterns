@@ -66,3 +66,10 @@ Sometimes it's necessary to refit a plot on a subset of the data. Use the specia
 (base_plot %+% filter(df, version == 2)) +
   geom_point(stat = "summary", fun.y = "mean")
 ```
+
+The above is effectively the same as the code below, without the use of a temporary variable.
+
+```R
+v2_plot <- base_plot %+% filter(df, version == 2)
+v2_plot + geom_point(stat = "summary", fun.y = "mean")
+```

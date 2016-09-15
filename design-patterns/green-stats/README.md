@@ -5,7 +5,7 @@ This is a design pattern for writing results sections in knitr.
 ## Description
 
 * **Intent**. Write results sections without copy & paste.
-* **Scenario**. You discover an outlier in your data, and need to redo all the stats after you have a manuscript written. Or, you decide to present your stats in a different format, for example, you decide you want to add 95% CIs to all results.
+* **Scenario**. Any time you've ever redone your stats ever.
 * **Solution**. Create functions for formatting model results.
 
 ## Formatters
@@ -34,3 +34,19 @@ Use it in a knitr chunk like this:
     ```
 
     We found a significant effect of x, `r report_lm(mod, "x")`.
+
+## Formatters and egg projects
+
+Wondering where to put your green stats formatters? Put them in your egg projects!
+
+    .
+    └── my-proj
+        ├── analysis.Rproj
+        └── projdata
+            ├── DESCRIPTION
+            ├── NAMESPACE
+            ├── projdata.Rproj
+            └── R
+                └── formatters.R
+
+Now reinstall and load the package and you will have access to any functions in "formatters.R".

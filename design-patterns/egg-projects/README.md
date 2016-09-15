@@ -48,7 +48,9 @@ data("experiment")
 # ... describe data, fit models, make plots
 ```
 
-The "egg" in "egg projects" is the R package that contains the data we are interested it. Once you have an egg, you know you can make any recipe that needs an egg.
+The goal of egg projects is to make any analyses that use these data to be portable, to be able to be run from anywhere without hardcoding paths to specific csvs, by using R's package loading system.
+
+At the beginning these R packages are nothing more than wrappers around raw data files. But the benefit to bundling your data in an R package to start is that it is makes it easy to bundle in helper functions for recoding certain variables and formatting functions for presenting the results of statistical tests in a consistent way down the road.
 
 **Notice that there are two things that need to be named**: the data project (`my-proj`) and the R pkg (`projdata`). These can be the same name, but keep in mind that R packages have a strict naming scheme: one word, all lower case, no separators like dashes or underscores.
 
@@ -73,9 +75,9 @@ The end result has a directory structure like so:
 
     3 directories, 5 files
 
-## Optional quest: write a bash script
+## Optional automation: newegg
 
-The steps to making a new egg project can be automated by creating a simple bash script:
+Project templates naturally lend themselves to automation. Here's one using [cookiecutter](https://drivendata.github.io/cookiecutter-data-science/). Here's one built in R: [ProjectTemplate](http://projecttemplate.net/index.html). I've found it's often much simpler to just write a bash script:
 
 ```bash
 touch newegg     # create an empty file "newegg"
@@ -84,8 +86,7 @@ chmod +x newegg  # make it executable
 
 ```bash
 #!/usr/bin/env bash
-# newegg - create a new egg project.
-# usage: newegg projname pkgname
+# newegg [projname] [pkgname] -- create a new egg project.
 projname=$1
 pkgname=$2
 mkdir $projname
@@ -100,6 +101,18 @@ Use it like this:
 ```bash
 newegg my-proj projdata
 ```
+
+    $ tree my-proj
+    .
+    └── my-proj
+        ├── analysis.Rproj
+        └── projdata
+            ├── DESCRIPTION
+            ├── NAMESPACE
+            ├── R
+            └── projdata.Rproj
+
+    3 directories, 5 files
 
 ## Getting the data
 
@@ -132,7 +145,7 @@ After running the `getdata` script, here is what the project looks like:
 
 ## Using the data
 
-The best way to share data in an R pkg is through .rda files stored in the package's data directory. I like to create an .R script that reads the raw data files and uses the devtools function ``use_data`` to save the data in the correct format:
+The way to share data in an R pkg is through .rda files stored in the package's data directory. I like to create an .R script that reads the raw data files and uses the devtools function ``use_data`` to save the data in the correct format:
 
 ```R
 # data-raw/save-as.R

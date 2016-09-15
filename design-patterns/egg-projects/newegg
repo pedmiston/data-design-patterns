@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # newegg - create a new data project using the egg template
 projname=$1
-pkgname=$2
+pkgname=${2:-$1}
 
 mkdir $projname
 cd $projname
