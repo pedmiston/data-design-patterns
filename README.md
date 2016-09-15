@@ -1,4 +1,4 @@
-<img src="https://github.com/pedmiston/data-design-patterns/raw/master/img/platypus.jpg" align="left" width="100">
+<img src="https://github.com/pedmiston/data-design-patterns/raw/master/img/platypus.jpg" align="left" width="140">
 
 # Design patterns for data projects
 
