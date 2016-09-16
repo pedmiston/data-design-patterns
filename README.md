@@ -13,13 +13,13 @@ When starting new data projects, what's the best way to design your project to m
 
 ## Design patterns
 
-1. **Egg projects**. A useful configuration of R packages and RStudio
+1. [Egg projects](/design-patterns/egg-projects/). A useful configuration of R packages and RStudio
    projects.
-2. **Parallel reports**. The parallelization of code and report writing for
+2. [Parallel reports](/design-patterns/parallel-reports/). The parallelization of code and report writing for
    improved interactive development.
-3. **Green stats**. Result sections in knitr. Could save your life!
-4. **Merge recode**. Authoritative recoder functions.
-5. **DRY plots**. A small pattern for not repeating yourself when making
+3. [Green stats](/design-patterns/green-stats/). Result sections in knitr. Could save your life!
+4. [Merge recode](/design-patterns/merge-recode/). Authoritative recoder functions.
+5. [DRY plots](/design-patterns/dry-plots/). A small pattern for not repeating yourself when making
    plots using ggplot.
 
 ## Example data projects
