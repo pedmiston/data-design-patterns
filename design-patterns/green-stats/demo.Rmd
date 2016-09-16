@@ -1,0 +1,38 @@
+---
+title: "Green stats in action"
+output:
+  html_document:
+    theme: flatly
+---
+
+```{r config, echo = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE
+)
+
+library(broom)
+library(pander)
+
+report_lm <- function(mod, param) {
+  coefs <- tidy(mod)
+  selected <- coefs[coefs$term == param, ]
+  
+  b <- selected[["estimate"]]
+  se <- selected[["std.error"]]
+  t <- selected[["statistic"]]
+  df <- glance(mod)$df.residual
+  p <- selected[["p.value"]]
+  
+  sprintf("b = %.2f (%.2f), _t_(%d) = %.2f, _p_ = %.4f",
+          b, se, df, t, p)
+}
+```
+
+```{r model, echo = 1, results = 'asis'}
+mod <- lm(extra ~ group, data = sleep)
+coefs <- tidy(mod)
+pandoc.table(coefs)
+```
+
+The participants in Group 2 slept more than the participants in Group 1, `r report_lm(mod, "group2")`.
