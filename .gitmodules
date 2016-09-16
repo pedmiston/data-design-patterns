@@ -7,3 +7,6 @@
 [submodule "sample-projects/github-pulse"]
 	path = example-projects/github-pulse
 	url = git@github.com:pedmiston/github-pulse.git
+[submodule "example-projects/words-in-transition"]
+	path = example-projects/words-in-transition
+	url = git@github.com:lupyanlab/words-in-transition

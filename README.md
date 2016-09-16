@@ -35,6 +35,7 @@ git submodule init && git submodule update
 1. [github-pulse](https://github.com/pedmiston/github-pulse/) is a project I made up mainly to demonstrates each of the design patterns in action. The project pulls freely available Github event data from [githubarchive](https://githubarchive.org) and analyzes it in R. This sample project demonstrates the value of data design patterns in facilitating the growth of a data project from exploratory analyses to final reports.
 2. [property-verification](https://github.com/lupyanlab/property-verification/) is a cognitive psychology experiment set up as a data project. The data in this project can be used to demonstrate how to write **parallel reports** and **DRY plots** that grow gracefully from exploratory analyses to final reports.
 3. [wikischolar](https://github.com/evoapps/wikischolar/) is an ongoing research project interested in measuring changes in Wikipedia article quality over time. The process of obtaining the data is more elaborate and is contained in a python library, yet the benefits to using the data design patterns is the same.
+4. [words-in-transition](https://github.com/lupyanlab/words-in-transition/) is a research project on the evolution of language, specifically on the evolution of categorical word forms as a result of repeated imitation of non-verbal sounds, like in the children's game of telephone. The many stages of this research project make it a case study for effective report organization.
 
 ## Description
 
